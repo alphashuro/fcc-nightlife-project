@@ -8,7 +8,7 @@
 	<script>
 		this.bars = [];
 		app.on('bars', bars => {
-			this.update(bars);
+			this.update({bars});
 		})
 	</script>
 </bars>
