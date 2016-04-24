@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Nightlife Coordination App</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<h3>Plans Tonight?</h3>
+	<p>See which bars are hoppin' tonight and RSVP ahead of time!</p>
+	<p>Remember: take a cab so you can drink irresponsibly.</p>
+	<search-place></search-place>
+	<bars></bars>
+
+	<script type="riot/tag">
+		<search-place>
+			<form onsubmit={ search }>
+				<input name="place" type="text" placeholder="Where you at?">
+				<button>Go</button>
+			</form>
+
+			search(e) {
+				opts.trigger('search', this.place.value)
+			}
+		</search-place>
+	</script>
+	<script type="riot/tag">
+		<bars>
+			<ul>
+
+			</ul>
+
+			this.bars = [];
+	  	
+	  	app.on('search', v => {
+	  		fetch(`/api/search/${v}`)
+	  		.then(r => console.log(r))
+	  		// .then(r => r.json())
+	  		// .then(bars => this.update({bars}))
+	  	})
+		</bars>
+	</script>
+  <script src="https://cdn.jsdelivr.net/riot/2.3/riot+compiler.min.js"></script>
+  <script>
+  	var app = riot.observable();
+  	riot.mount('*', app);
+  </script>
+</body>
+</html>

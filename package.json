@@ -1,0 +1,34 @@
+{
+  "name": "fcc-nightlife-project",
+  "version": "1.0.0",
+  "description": "FreeCodeCamp nightlife coordination project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alphashuro/fcc-nightlife-project.git"
+  },
+  "keywords": [
+    "foursquare",
+    "FreeCodeCamp",
+    "nodejs"
+  ],
+  "author": "Alpha Shuro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alphashuro/fcc-nightlife-project/issues"
+  },
+  "homepage": "https://github.com/alphashuro/fcc-nightlife-project#readme",
+  "devDependencies": {
+    "dotenv": "^2.0.0"
+  },
+  "dependencies": {
+    "koa": "^1.2.0",
+    "koa-static": "^2.0.0",
+    "foursquarevenues": "^2.0.0",
+    "koa-json": "^1.1.1",
+    "koa-route": "^2.4.2"
+  }
+}
