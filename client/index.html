@@ -11,40 +11,13 @@
 	<p>See which bars are hoppin' tonight and RSVP ahead of time!</p>
 	<p>Remember: take a cab so you can drink irresponsibly.</p>
 	<search-place></search-place>
+	<use-my-loc></use-my-loc>
 	<bars></bars>
-
-	<script type="riot/tag">
-		<search-place>
-			<form onsubmit={ search }>
-				<input name="place" type="text" placeholder="Where you at?">
-				<button>Go</button>
-			</form>
-
-			search(e) {
-				opts.trigger('search', this.place.value)
-			}
-		</search-place>
-	</script>
-	<script type="riot/tag">
-		<bars>
-			<ul>
-
-			</ul>
-
-			this.bars = [];
-	  	
-	  	app.on('search', v => {
-	  		fetch(`/api/search/${v}`)
-	  		.then(r => console.log(r))
-	  		// .then(r => r.json())
-	  		// .then(bars => this.update({bars}))
-	  	})
-		</bars>
-	</script>
-  <script src="https://cdn.jsdelivr.net/riot/2.3/riot+compiler.min.js"></script>
-  <script>
-  	var app = riot.observable();
-  	riot.mount('*', app);
-  </script>
+	
+	<script src="https://cdn.jsdelivr.net/riot/2.3/riot+compiler.min.js"></script>
+	<script type="riot/tag" src="search-place.tag"></script>
+	<script type="riot/tag" src="use-my-loc.tag"></script>
+	<script type="riot/tag" src="bars.tag"></script>
+	<script src="app.js"></script>
 </body>
 </html>
