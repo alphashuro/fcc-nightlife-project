@@ -6,7 +6,7 @@
 
 	<script>
 		search(e) {
-			const query = 'place='+this.place.value;
+			const query = '?place='+this.place.value;
 			opts.fetchBars(query);
 		}
 	</script>

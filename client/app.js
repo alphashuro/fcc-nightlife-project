@@ -1,6 +1,6 @@
 var app = riot.observable();
 app.fetchBars = query => {
-	const api = '/api/explore?';
+	const api = '/api/explore';
 	const url = encodeURIComponent(api+query);
 	fetch(api+query)
 		.then(r => r.json())

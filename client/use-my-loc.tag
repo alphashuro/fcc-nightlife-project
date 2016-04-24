@@ -3,11 +3,11 @@
 
 	<script>
 		useloc() {
-			navigator.geolocation.getCurrentPosition({coords} => {
+			navigator.geolocation.getCurrentPosition(({coords}) => {
 				const query = 
-					'latitude='+coords.latitude+
-					'longitude='+coords.longitude+
-					'accuracy='+coords.accuracy;
+					'?latitude='+coords.latitude+
+					'&longitude='+coords.longitude+
+					'&accuracy='+coords.accuracy;
 				opts.fetchBars(query);
 			});
 		}
