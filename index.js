@@ -8,19 +8,18 @@ var app = koa();
 
 app.context.foursquare = foursquare;
 
-function explore(location) {
-	return 
-}
-
 var bars = {
-	search: function *(location) {
+	explore: function *() {
 		this.type = 'json';
 		this.body = yield new Promise((resolve, reject) => {
 			const options = {
-				venuePhotos: 1,
-				section: 'drinks', 
-				near: location
+				section: 'drinks'
 			};
+			if (this.query.place) options.near = this.query.near;
+			if (this.query.latitude && this.query.longitude) {
+				options.ll = this.query.latitude+','+this.query.longitude;
+			}
+			if (this.query.accuracy) options.llAcc = this.query.accuracy;
 			this.foursquare.exploreVenues(options, (err, data) => {
 				if (err) {
 					reject(err);
@@ -28,8 +27,7 @@ var bars = {
 					const result = data.response.groups[0].items.map(i => ({
 											name: i.venue.name, 
 											phone: i.venue.contact.formattedPhone,
-											address: i.venue.location.address,
-											self: i.venue
+											address: i.venue.location.address
 										}));
 					resolve(result);
 				}
@@ -41,6 +39,6 @@ var bars = {
 app.use(json());
 app.use(serve('./client'));
 
-app.use(kr.get('/api/search/:location', bars.search))
+app.use(kr.get('/api/explore', bars.explore))
 
 app.listen(8080);
