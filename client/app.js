@@ -1,4 +1,9 @@
-var app = riot.observable();
+import fetch from 'isomorphic-fetch';
+import './bars.tag';
+import './search-place.tag';
+import './use-my-loc.tag';
+
+const app = riot.observable();
 app.fetchBars = query => {
 	const api = '/api/explore';
 	const url = encodeURIComponent(api+query);
