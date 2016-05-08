@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
+  	"postinstall": "npm run build",
+    "build": "webpack --colors --progress",
+    "watch": "webpack --watch --colors --progress",
   },
   "repository": {
     "type": "git",
@@ -23,12 +26,21 @@
   "homepage": "https://github.com/alphashuro/fcc-nightlife-project#readme",
   "devDependencies": {
     "dotenv": "^2.0.0"
+    "babel": "^6.5.2",
   },
   "dependencies": {
     "koa": "^1.2.0",
     "koa-static": "^2.0.0",
+    "babel-core": "^6.8.0",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-runtime": "^6.8.0",
+    "babel-polyfill": "^6.8.0",
+    "babel-register": "^6.8.0",
     "foursquarevenues": "^2.0.0",
     "koa-json": "^1.1.1",
     "koa-route": "^2.4.2"
+    "riot": "^2.3.18",
+    "riotjs-loader": "^3.0.0",
+    "webpack": "^1.13.0"
   }
 }
