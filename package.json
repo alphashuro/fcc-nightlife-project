@@ -8,6 +8,24 @@
     "start": "node index.js",
     "build": "webpack --colors --progress",
     "watch": "webpack --watch --colors --progress",
+    "test": "ava"
+  },
+  "engines": {
+    "node": "6.0.0"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.js"
+    ],
+    "source": [
+      "server/**/*.js"
+    ],
+    "failFast": true,
+    "tap": true,
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
   },
   "repository": {
     "type": "git",
@@ -26,7 +44,12 @@
   "homepage": "https://github.com/alphashuro/fcc-nightlife-project#readme",
   "devDependencies": {
     "dotenv": "^2.0.0"
+    "ava": "^0.14.0",
     "babel": "^6.5.2",
+    "proxyquire": "^1.7.7",
+    "simple-mock": "^0.7.0",
+    "supertest-as-promised": "^3.1.0",
+    "supertest": "^1.2.0"
   },
   "dependencies": {
     "koa": "^1.2.0",
