@@ -11,7 +11,7 @@
 	<script>
 		this.bars = [];
 
-		app.on('bars', bars => {
+		opts.on('bars', bars => {
 			this.update({bars});
 		});
 
