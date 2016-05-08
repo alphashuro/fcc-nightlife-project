@@ -4,8 +4,8 @@
   "description": "FreeCodeCamp nightlife coordination project",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
   	"postinstall": "npm run build",
+    "start": "node index.js",
     "build": "webpack --colors --progress",
     "watch": "webpack --watch --colors --progress",
   },
