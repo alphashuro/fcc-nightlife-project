@@ -1,0 +1,5 @@
+{
+  "name": "Nightlife Coordination",
+  "description": "An app for checking in to bars in your area.",
+  "image": "heroku/nodejs"
+}
